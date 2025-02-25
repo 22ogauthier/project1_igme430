@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Book API</title>
+</head>
+
+<body>
+    <header>
+        <h1>BookNook API</h1>
+    </header>
+    <div class="image-container">
+        <img src="">
+        <div class="overlay-text">Placeholder</div>
+    </div>
+    <div id="grid">
+        <button type="button" class="collapsible">
+            <h2>Search All Books</h2>
+        </button>
+        <div class="content-box">
+            <form data-method="GET" data-endpoint="/api/getAllBooks">
+                <label>GET</label>
+                <input type="radio" name="method" value="GET" checked>
+                <label>HEAD</label>
+                <input type="radio" name="method" value="HEAD">
+                <button type="submit">Send Request</button>
+            </form>
+            <pre class="content"></pre>
+        </div>
+    </div>
+</body>
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        });
+    }
+</script>
+
+
+</html>
